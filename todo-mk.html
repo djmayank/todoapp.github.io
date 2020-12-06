@@ -1,0 +1,366 @@
+<html>
+    <head>
+        <title>TO DO APP</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style type="text/css">
+           *{
+                background-color: #f5f5f5;
+                box-sizing: border-box;
+                -webkit-font-smoothing: antialiased; 
+                font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;
+                outline: none;
+            }
+            .upperbody{
+                text-align: -webkit-center;
+            }
+            .headd{
+                color: #ebd8d8;
+                font-size: 102px; 
+                font-weight: 90;
+            }
+            .box{
+                padding: 20px 60px 20px 60px;
+                border: none;
+                background-color: white;
+                width: 38%;
+                border-top: 1px solid #e6e6e6;
+                box-shadow: -2px -10px 8px 2px rgba(0,0,0,.03);
+                border-radius: 4px;
+            }
+            input{
+                font-size: 22px;
+                font-weight: 300;
+            }
+            .wrapper{
+                position: relative;
+            }
+            .placeholderr {
+                position: absolute;
+                font-size: 22px;
+                font-weight: 300;
+                font-style: italic;
+                opacity: 0.3;
+                background: white;
+                top: 22;
+                left: 35%;
+            }
+    
+ 
+            input:focus + .placeholderr{
+                transform: translate(-19px, -20px) scale(0.8);
+                transition: .07s ease-in-out;
+            }
+        
+            
+            
+            input[type=checkbox]:checked {
+                -webkit-appearance: none;
+                background-image: url('data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2240%22%20height%3D%2240%22%20viewBox%3D%22-10%20-18%20100%20135%22%3E%3Ccircle%20cx%3D%2250%22%20cy%3D%2250%22%20r%3D%2250%22%20fill%3D%22none%22%20stroke%3D%22%23bddad5%22%20stroke-width%3D%223%22/%3E%3Cpath%20fill%3D%22%235dc2af%22%20d%3D%22M72%2025L42%2071%2027%2056l-4%204%2020%2020%2034-52z%22/%3E%3C/svg%3E');
+                height: 30px;
+                border-radius: 50%;
+                background-position: center;
+                background-position-x: -9px;
+                border: 1px solid #b2e1d8;
+                
+            }
+            input[type=checkbox] {
+                -webkit-appearance: none;
+                height: 30px;
+                width: 30px;
+                margin: 0;
+                margin-right: 14px;
+                margin-left: 10px;
+                border-radius: 50%;
+                border: 1px solid #f5f5f5;
+                background: white;
+            }
+            .btn2{
+                padding: 2%;
+                background-color: transparent;
+                font-size: 12px;
+                color:#da4d4d;
+            }
+            .btn2:hover{
+                cursor: pointer;
+                transform: scale(1.5);
+            }
+            .fa:hover{
+                font-weight: 400;
+            }
+            .btn2w{
+               margin-right: 14px;
+            }
+            .btn2w:hover{
+                cursor: pointer;  
+            }
+            .taskbox{
+                padding: 16px 8px 16px 16px;
+                background-color: white;
+                width: 38%;
+                border-top: 1px solid #e6e6e6;
+                box-shadow: 0px 11px 14px 3px rgba(0,0,0,.03);
+                display: flex;  
+                align-items: center;
+                border-radius: 4px;
+            }
+            .taskbox:hover > .go, .insbutton {
+                opacity : 1
+            }
+            .tasktext{
+                font-size: 22px;
+                font-weight: 300;
+                text-align: justify;
+                padding-top: 3px;
+                background-color: white;
+                opacity: 0.7;
+                flex-grow: 1;
+                width: 38%;
+            }
+            .strike{
+                text-decoration: line-through;
+                opacity: 0.2;
+                transition: ease-in-out;
+            }
+            .strikebutton{
+                opacity: 0.2;
+            }
+            .go, .insbutton{
+                opacity: 0; 
+            }
+        
+            input[type=checkbox]:checked {
+                color: blueviolet;
+            } 
+            
+            @media only screen and (max-width: 700px) {
+                .head{
+                    font-size: 85px;
+                }
+                .placeholderr{
+                    font-size: 14px;
+                    top: 11px;
+                    left: 26%;
+                }
+                .box{
+                    width: 64%;
+                    padding: 16px 20px 16px 30px;
+                }
+                .taskbox{
+                    width: 64%;
+                    padding: 6px 20px 6px 1px;
+                }
+                input[type=checkbox]:checked {
+                    height: 25px;
+                    width: 25px;
+                    background-position-x: -12px;
+                }
+                input[type=checkbox] {
+                    height: 25px;
+                    width: 25px;
+                }
+                .btn2 {
+                    padding-top: 5%;
+                }
+                .tasktext {
+                    font-size: 15px;
+                    padding-top: 5px;
+                }
+                input{
+                    font-size: 15px;
+                    
+                }
+                input:focus + .placeholderr{
+                    transform: translate(-14px, -12px) scale(0.8);
+                }
+            }
+            
+        </style>
+    </head>
+    <body onload="onLoad()">
+            <div class="upperbody">
+                <span class="headd">todos</span>
+                <br>
+                <div class="wrapper">
+                <input class="box" type="text" id="value">
+                <label for="value" class="placeholderr">What needs to be done?</label>
+                </div>
+                <div class="mainbox" id="mainn"></div>
+                </div> 
+    </body>
+</html>
+
+<script type="application/javascript">
+    
+    //initializations
+    if(localStorage.length == 0){
+        var itemsArray = [];
+        localStorage.setItem('items', JSON.stringify(itemsArray));
+        localStorage.setItem("lastid", 0);
+    }
+    
+    //Enter key press event trigger
+    var input = document.getElementById("value");
+    input.addEventListener("keyup", function(event) {
+        if (event.keyCode === 13) {
+            newBox();
+        }
+    });
+    
+    // Function SYNC
+    function sync(){
+        if(JSON.parse(localStorage.lastid) == 0){
+            tskid = 2;
+        }
+        else{            
+            tskid = JSON.parse(localStorage.lastid) + 1;
+        }
+    }
+        
+    var item  = document.getElementById("value");
+    var m1    = document.getElementById("mainn");    
+   
+    function empty(){
+        array = [];
+    }
+    
+    //Function onLoad
+    function onLoad() {
+        sync();
+        var items = JSON.parse(localStorage.getItem("items"));
+        var intervalue = JSON.parse(localStorage.items);
+        for(i =0; i < items.length; i++)
+        {
+            var key   = JSON.parse(intervalue[i].id);
+            var value = intervalue[i].desc;
+            var completed = intervalue[i].completed;
+            loadbox(key, value, completed);
+        }
+        empty();
+        array = JSON.parse(localStorage.getItem("items"));
+    }   
+    
+    //Function beforeunload
+    window.addEventListener('beforeunload', function(event) {
+        localStorage.setItem("items", JSON.stringify(array));
+      });
+    
+    
+    //Creating new box for new task
+    function newBox(){  
+        sync();
+        if(item.value == ''){
+            alert("Enter some task!!");
+        }
+        else{  
+            loadbox(tskid,item.value, 0);        
+            var newonedata  = new Object();
+            newonedata.id   = tskid;
+            newonedata.desc = item.value;
+            newonedata.completed= 0;
+            array.push(newonedata);
+      }
+      item.value = "";
+      localStorage.setItem("lastid", tskid);
+      tskid = tskid+1;
+  }  
+
+function appendtaskbox(completed, key)
+{
+        return(
+            `<div 
+                class="taskbox ${completed?"taskbox colortoggle": ""}"
+                id = "main${key}">
+             </div>`
+        )       
+}
+    
+function appendcheck(completed, key)
+{
+        return (
+            `<input type="checkbox"
+                class="btn2w"
+                ${completed? 'checked':null}
+                id = "c${key}">
+            </input>`
+        )
+    
+    
+}
+    
+
+function appendtextbox(completed, value, divisioncrossid)
+{
+        return (
+            `<label 
+                class="tasktext${completed ? " strike" : ""}" 
+                id="t${divisioncrossid}" for="c${divisioncrossid}"> 
+                ${value}
+             </label>`
+        )
+}
+
+    
+function appendcross(completed, key)
+{  
+        return (
+            `<div 
+                class="fa fa-times btn2 go${completed ? " insbutton":""}" 
+                id="${key}">
+             </div>` 
+        )
+}
+
+            function checkbuttonimp(event){
+            event.stopImmediatePropagation();
+            var ele2 = event.target.id;
+            if(!event.target.matches('.btn2w')) return;
+            ele2 = ele2.substr(1);
+            var textst = document.getElementById("t"+ele2);
+            textst.classList.toggle("strike");
+        
+            for(var i = 0; i < array.length; i++){
+                if ( array[i].id == ele2){
+                    var po = array[i].completed;
+                    if(po == 0){
+                        array[i].completed = 1;     
+                    }
+                    else{
+                        array[i].completed = 0;
+                    }
+                }
+            }  
+        }
+        
+        function crossbuttonimp(event){
+            event.stopImmediatePropagation();
+            var ele2 = event.target.id;
+            if(!event.target.matches('.btn2')) return;
+            var list = document.getElementById("main" + ele2);
+            m1.removeChild(list); 
+            for( var i = 0; i < array.length; i++){ 
+                if(array[i].id == ele2){
+                    array.splice(i,1);
+                }
+            }
+        }   
+    
+function loadbox(key,  value, completed)    
+{
+        var divisioncross = appendcross(completed, key);
+        var divisioncheck = appendcheck(completed, key);
+        var divisiontext  = appendtextbox(completed, value, key);
+        var division1     =  
+            `<div class="taskbox ${completed?"taskbox colortoggle": ""}" id = "main${key}">
+            ${divisioncheck} ${divisiontext} ${divisioncross}
+            </div>`;       
+        
+        m1.innerHTML += division1;
+        const characterList = document.querySelector('.mainbox');
+        characterList.addEventListener('click', crossbuttonimp);
+        characterList.addEventListener('change', checkbuttonimp);
+        
+
+}
+
+</script>
